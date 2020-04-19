@@ -18,7 +18,7 @@ app.post('/dialog', function (req, res) {
   res.send('Ok');
 });
 
-app.listen(3000, function () {
+app.listen(8100, function () {
   grpc_server.server.start();
-  console.log('Relay agent server listening! Rest server on 3000 & GRPC server on 5001');
+  console.log('Relay agent server listening! Rest server on 8100 & GRPC server on 8101');
 });
