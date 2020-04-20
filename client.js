@@ -19,7 +19,8 @@ var proto = grpc.loadPackageDefinition(
   })
 );
 
-const REMOTE_SERVER = '0.0.0.0:8101';
+// const REMOTE_SERVER = '0.0.0.0:8101';
+const REMOTE_SERVER = 'https://grpc-venom.herokuapp.com:8101/';
 
 let username;
 

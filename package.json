@@ -4,9 +4,6 @@
   "description": "agent relay",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "scripts": {
     "start": "node index.js"
   },
   "author": "Marcelo Arteaga",
@@ -14,6 +11,8 @@
   "dependencies": {
     "@grpc/proto-loader": "^0.5.4",
     "express": "^4.17.1",
+    "firebase": "^7.14.1",
+    "firebase-admin": "^8.10.0",
     "grpc": "^1.24.2"
   }
 }
