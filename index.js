@@ -18,7 +18,8 @@ app.post('/dialog', function (req, res) {
   res.send('Ok');
 });
 
-app.listen(8100, function () {
+let port = process.env.PORT || 8100;
+app.listen(port, function () {
   grpc_server.server.start();
   console.log('Relay agent server listening! Rest server on 8100 & GRPC server on 8101');
 });
