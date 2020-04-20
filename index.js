@@ -24,7 +24,21 @@ app.post('/dialog', function (req, res) {
           ]
         }
       }
-    ]
+    ],
+    "payload": {
+      "google": {
+        "expectUserResponse": true,
+        "richResponse": {
+          "items": [
+            {
+              "simpleResponse": {
+                "textToSpeech": "this is a Google Assistant response"
+              }
+            }
+          ]
+        }
+      }
+    }
   });
 });
 
