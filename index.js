@@ -10,17 +10,17 @@ app.get('/status', function (req, res) {
 });
 
 app.post('/dialog/:module', function (req, res) {
-
-  // let notify_key = fbs.notifyAgent('server', req.params.module, req.body);
-  // let timeout = setTimeout(function(){
-  //   res.send('Lo siento no hay ningun cliente escuchando');
-  // }, 9000);
-  // fbs.messages.on('child_changed', function(snapshot) {
-  //   if(notify_key == snapshot.key){
-  //     clearTimeout(timeout); 
-  //     res.send(notify_key);
-  //   }
+  // let notify = fbs.notifyAgent('server', 'hola a todos');
+  // fbs.messages.on('child_changed'child_changed", function(snapshot) {
+  // var changedPost = snapshot.val();
+  // console.log("The updated post title is " + changedPost.title);
   // });
+  // res.send(notify);
+  // // console.log(req.body);
+  // // grpc_server.notifyAgent({
+  // //   user: 'Server',
+  // //   text: JSON.stringify(req.body)
+  // // });
   res.send({
     "fulfillmentMessages": [
       {
@@ -29,26 +29,27 @@ app.post('/dialog/:module', function (req, res) {
             "Text response from webhook"
           ]
         }
-      },
-      "payload": {
-        "google": {
-          "expectUserResponse": true,
-          "richResponse": {
-            "items": [
-              {
-                "simpleResponse": {
-                  "textToSpeech": "this is a Google Assistant response"
-                }
+      }
+    ],
+    "payload": {
+      "google": {
+        "expectUserResponse": true,
+        "richResponse": {
+          "items": [
+            {
+              "simpleResponse": {
+                "textToSpeech": "this is a Google Assistant response"
               }
-            ]
-          }
+            }
+          ]
         }
       }
-    ]
+    }
   });
 });
 
 let port = process.env.PORT || 8100;
 app.listen(port, function () {
-  console.log('Relay agent server listening! Rest server on 8100');
+  // grpc_server.server.start();
+  console.log('Relay agent server listening! Rest server on 8100 & GRPC server on 8101');
 });
