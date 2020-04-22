@@ -9,8 +9,9 @@ app.get('/status', function (req, res) {
   res.send('Ready!');
 });
 
-app.post('/dialog/:module', function (req, res) {
-  let notify_key = fbs.notifyAgent('server', req.params.module, req.body);
+// app.post('/dialog/:module', function (req, res) {
+app.post('/webhook', function (req, res) {
+  let notify_key = fbs.notifyAgent('server', 'git', req.body);
   // let timeout = setTimeout(function(){
   //   res.send('Lo siento no hay ningun cliente escuchando');
   // }, 9000);
@@ -26,7 +27,7 @@ app.post('/dialog/:module', function (req, res) {
       {
         "text": {
           "text": [
-            "Text response from webhook 2"
+            "Text response from webhook 3"
           ]
         }
       }
@@ -38,7 +39,7 @@ app.post('/dialog/:module', function (req, res) {
           "items": [
             {
               "simpleResponse": {
-                "textToSpeech": "this is a Google Assistant response 2"
+                "textToSpeech": "this is a Google Assistant response 3"
               }
             }
           ]
