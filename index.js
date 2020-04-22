@@ -10,15 +10,41 @@ app.get('/status', function (req, res) {
 });
 
 app.post('/dialog/:module', function (req, res) {
-  let notify_key = fbs.notifyAgent('server', req.params.module, req.body);
-  let timeout = setTimeout(function(){
-    res.send('Lo siento no hay ningun cliente escuchando');
-  }, 9000);
-  fbs.messages.on('child_changed', function(snapshot) {
-    if(notify_key == snapshot.key){
-      clearTimeout(timeout); 
-      res.send(notify_key);
-    }
+
+  // let notify_key = fbs.notifyAgent('server', req.params.module, req.body);
+  // let timeout = setTimeout(function(){
+  //   res.send('Lo siento no hay ningun cliente escuchando');
+  // }, 9000);
+  // fbs.messages.on('child_changed', function(snapshot) {
+  //   if(notify_key == snapshot.key){
+  //     clearTimeout(timeout); 
+  //     res.send(notify_key);
+  //   }
+  // });
+  res.send({
+    "fulfillmentMessages": [
+      {
+        "text": {
+          "text": [
+            "Text response from webhook"
+          ]
+        }
+      },
+      "payload": {
+        "google": {
+          "expectUserResponse": true,
+          "richResponse": {
+            "items": [
+              {
+                "simpleResponse": {
+                  "textToSpeech": "this is a Google Assistant response"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
   });
 });
 
