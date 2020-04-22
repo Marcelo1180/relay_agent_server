@@ -10,23 +10,23 @@ app.get('/status', function (req, res) {
 });
 
 app.post('/dialog/:module', function (req, res) {
-  // let notify = fbs.notifyAgent('server', 'hola a todos');
-  // fbs.messages.on('child_changed'child_changed", function(snapshot) {
-  // var changedPost = snapshot.val();
-  // console.log("The updated post title is " + changedPost.title);
+  let notify_key = fbs.notifyAgent('server', req.params.module, req.body);
+  // let timeout = setTimeout(function(){
+  //   res.send('Lo siento no hay ningun cliente escuchando');
+  // }, 9000);
+  // fbs.messages.on('child_changed', function(snapshot) {
+  //   if(notify_key == snapshot.key){
+  //     clearTimeout(timeout); 
+  //     res.send(notify_key);
+  //   }
   // });
-  // res.send(notify);
-  // // console.log(req.body);
-  // // grpc_server.notifyAgent({
-  // //   user: 'Server',
-  // //   text: JSON.stringify(req.body)
-  // // });
+
   res.send({
     "fulfillmentMessages": [
       {
         "text": {
           "text": [
-            "Text response from webhook"
+            "Text response from webhook 2"
           ]
         }
       }
@@ -38,7 +38,7 @@ app.post('/dialog/:module', function (req, res) {
           "items": [
             {
               "simpleResponse": {
-                "textToSpeech": "this is a Google Assistant response"
+                "textToSpeech": "this is a Google Assistant response 2"
               }
             }
           ]
